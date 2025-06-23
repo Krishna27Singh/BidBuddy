@@ -1,5 +1,5 @@
 # Node.js specific
-node_modules/           # Dependency directory
+node_modules            # Dependency directory
 npm-debug.log*          # Logs for npm
 yarn-debug.log*         # Logs for yarn
 yarn-error.log*         # Logs for yarn errors
