@@ -12,7 +12,7 @@ connectDB();
 app.use(express.json());
 
 app.use(cors({
-  origin: '*', // Allow all origins
+  origin: ['http://localhost:8080', 'https://www.omnidim.io'], // Allow all origins
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
 }));
