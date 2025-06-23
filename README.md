@@ -32,7 +32,7 @@ A real-time, voice-driven auction platform built using *Next.js (TypeScript)* an
 
 | Layer        | Technology                  |
 |--------------|------------------------------|
-| Frontend     | Next.js + TailwindCSS + TypeScript |
+| Frontend     | React.js + TailwindCSS |
 | Backend      | Node.js + Express.js         |
 | Voice Agent  | OmniDimension                |
 | Real-time    | REST API + Socket.io         |
