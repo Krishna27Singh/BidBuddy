@@ -1,71 +1,25 @@
-# Node.js specific
-node_modules            # Dependency directory
-npm-debug.log*          # Logs for npm
-yarn-debug.log*         # Logs for yarn
-yarn-error.log*         # Logs for yarn errors
-package-lock.json       # Lock file (optional, if you prefer not to track)
-
 # Logs
-logs/                   # Log folder
-*.log                   # Log files
-*.log.*                 # Log files with extensions
-pids/
-*.pid                   # Process ID files
-*.seed                  # Seed files
-*.pid.lock              # Lock files
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# Runtime data
-*.cache                 # Cache files
-*.tmp                   # Temporary files
-tmp/
-temp/
+node_modules
+dist
+dist-ssr
+*.local
 
-# Dependency directories
-bower_components/
-jspm_packages/
-
-# dotenv environment variables
-.env                    # Environment variables
-.env.*                  # Other environment variations
-
-# Build and output directories
-build/
-dist/
-out/
-public/build/           # Built assets in public folder
-coverage/               # Test coverage reports
-
-# IDE specific
-.idea/                  # JetBrains IDE files
-.vscode/                # Visual Studio Code files
-*.swp                   # Swap files (vim)
-*.swo                   # Swap files (vim)
-*.sublime*              # Sublime Text files
-
-# OS specific
-.DS_Store               # macOS directory metadata
-Thumbs.db               # Windows thumbnail cache
-
-# Debugging files
-*.stackdump             # Stack traces for Windows
-*.memorygraph           # Memory snapshots
-*.heapsnapshot          # Heap snapshots
-*.dump                  # Core dumps
-
-# Testing and temporary files
-*.test.js               # Test files
-*.spec.js               # Spec files
-__tests__/              # Test folders
-__mocks__/              # Mock folders
-test-results/           # Test result folders
-
-# MongoDB specific
-*.bak                   # Backup files
-*.dump                  # Database dump files
-
-# Other
-*.lock                  # Lock files
-*.bak                   # Backup files
-*.sass-cache            # Sass cache
-.eslintcache            # ESLint cache
-.prettiercache          # Prettier cache
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.env
