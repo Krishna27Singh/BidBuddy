@@ -6,20 +6,16 @@ const cors = require('cors');
 
 const app = express();
 
-// Connect to database
 connectDB();
 
-// Middleware
 app.use(express.json());
 
 app.use(cors({
-  origin: '*', // Allow all origins
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
-  credentials: true, // Enable credentials
+  origin: '*', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], 
+  allowedHeaders: ['Content-Type', 'Authorization'], 
+  credentials: true, 
 }));
-
-// app.options('*', cors());
 
 
 app.use((req, res, next) => {
@@ -36,7 +32,6 @@ app.use("/omni", (req, res) => {
   res.status(200).send("API working fine");
 });
 
-// Routes
 app.use("/", require("./routes/authRoutes"));
 
 const PORT = process.env.PORT || 8008;

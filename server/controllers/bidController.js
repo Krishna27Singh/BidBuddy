@@ -1,7 +1,6 @@
 const Bid = require('../models/Bid');
 const CompletedBid = require('../models/CompletedBid');
 
-// Place a new bid
 exports.createBid = async (req, res) => {
   try {
     const { item, currentBid, description } = req.body;
@@ -13,7 +12,6 @@ exports.createBid = async (req, res) => {
   }
 };
 
-// Update a bid
 exports.updateBid = async (req, res) => {
   try {
     const { id } = req.params;
