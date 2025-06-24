@@ -3,6 +3,7 @@ const express = require("express");
 const connectDB = require("./config/db");
 const cors = require('cors');
 
+
 const app = express();
 
 // Connect to database
@@ -18,7 +19,7 @@ app.use(cors({
   credentials: true, // Enable credentials
 }));
 
-app.options('*', cors());
+// app.options('*', cors());
 
 
 app.use((req, res, next) => {
@@ -38,6 +39,5 @@ app.use("/omni", (req, res) => {
 // Routes
 app.use("/", require("./routes/authRoutes"));
 
-// Server listening
 const PORT = process.env.PORT || 8008;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
