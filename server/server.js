@@ -34,5 +34,9 @@ app.use("/omni", (req, res) => {
 
 app.use("/", require("./routes/authRoutes"));
 
+
+const geminiRoutes = require('./routes/geminiRoutes');
+app.use('/gemini', geminiRoutes);
+
 const PORT = process.env.PORT || 8008;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

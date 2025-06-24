@@ -6,6 +6,9 @@ import { TrendingUp, Shield, Zap, Target, Users, Award } from 'lucide-react';
 
 const Dashboard = ({ user, onLogout }) => {
   const [activeTab, setActiveTab] = useState('dashboard');
+  const [insight, setInsight] = useState('');
+const [loadingInsight, setLoadingInsight] = useState(false);
+
 
   useEffect(() => {
     // Debugging user object
@@ -41,6 +44,21 @@ const Dashboard = ({ user, onLogout }) => {
       yourBid: "$1,100",
     },
   ];
+
+  const fetchAIInsights = async () => {
+  try {
+    setLoadingInsight(true);
+    const res = await fetch('http://localhost:8008/gemini');
+    const data = await res.json();
+    setInsight(data.summary || 'No response from AI.');
+  } catch (error) {
+    console.error('Failed to fetch AI insights:', error);
+    setInsight('Failed to load AI-generated insights.');
+  } finally {
+    setLoadingInsight(false);
+  }
+};
+
 
   const features = [
     {
@@ -160,6 +178,24 @@ const Dashboard = ({ user, onLogout }) => {
                 ))}
               </div>
             </div>
+
+            {/* AI Insights Button */}
+<div className="mb-12 text-center">
+  <button
+    onClick={fetchAIInsights}
+    className="bg-gradient-to-r from-teal-500 to-blue-500 text-white px-6 py-3 rounded-xl font-medium hover:from-teal-600 hover:to-blue-600 transition-all duration-300 shadow-lg"
+  >
+    {loadingInsight ? 'Generating...' : 'Get AI-Generated Insights'}
+  </button>
+
+  {insight && (
+    <div className="mt-6 p-6 bg-white/90 rounded-xl text-gray-800 shadow-md max-w-3xl mx-auto text-left whitespace-pre-line">
+      <h3 className="text-xl font-semibold mb-2 text-teal-700">BidBuddy AI Suggestion:</h3>
+      <p>{insight}</p>
+    </div>
+  )}
+</div>
+
 
             {/* Why Choose BidBuddy */}
             <div>
