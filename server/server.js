@@ -3,18 +3,18 @@ const express = require("express");
 const connectDB = require("./config/db");
 const cors = require('cors');
 
+
 const app = express();
 
-// Connect to database
 connectDB();
 
-// Middleware
 app.use(express.json());
 
 app.use(cors({
-  origin: 'http://localhost:8080', // Frontend URL
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+  origin: '*', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], 
+  allowedHeaders: ['Content-Type', 'Authorization'], 
+  credentials: true, 
 }));
 
 
@@ -32,9 +32,11 @@ app.use("/omni", (req, res) => {
   res.status(200).send("API working fine");
 });
 
-// Routes
 app.use("/", require("./routes/authRoutes"));
 
-// Server listening
+
+const geminiRoutes = require('./routes/geminiRoutes');
+app.use('/gemini', geminiRoutes);
+
 const PORT = process.env.PORT || 8008;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
