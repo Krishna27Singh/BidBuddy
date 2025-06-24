@@ -47,16 +47,18 @@ const [loadingInsight, setLoadingInsight] = useState(false);
 
   const fetchAIInsights = async () => {
   try {
-    setLoadingInsight(true);
-    const res = await fetch('http://localhost:8008/gemini');
-    const data = await res.json();
-    setInsight(data.summary || 'No response from AI.');
-  } catch (error) {
-    console.error('Failed to fetch AI insights:', error);
-    setInsight('Failed to load AI-generated insights.');
-  } finally {
-    setLoadingInsight(false);
-  }
+  setLoadingInsight(true);
+  const backendUri = import.meta.env.VITE_BACKEND_URI; // Access VITE_BACKEND_URI from .env
+  const res = await fetch(`${backendUri}/gemini`);
+  const data = await res.json();
+  setInsight(data.summary || 'No response from AI.');
+} catch (error) {
+  console.error('Failed to fetch AI insights:', error);
+  setInsight('Failed to load AI-generated insights.');
+} finally {
+  setLoadingInsight(false);
+}
+
 };
 
 
